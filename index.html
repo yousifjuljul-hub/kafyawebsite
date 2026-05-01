@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>موسوعة الإقامة الدورية</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #1a4a6e;
+  --primary-dark: #0d2f47;
+  --primary-light: #2a6a9e;
+  --gold: #c8a84b;
+  --gold-light: #e8c96b;
+  --white: #ffffff;
+  --bg: #f4f7fa;
+  --text: #2c3e50;
+  --text-light: #6b7c93;
+  --border: #dce4ef;
+  --card-shadow: 0 4px 20px rgba(26,74,110,0.10);
+  --card-hover: 0 8px 32px rgba(26,74,110,0.18);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Tajawal', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+}
+
+/* ===== TOP BAR ===== */
+.topbar {
+  background: var(--primary-dark);
+  color: #b3ccdd;
+  font-size: 13px;
+  padding: 7px 0;
+  text-align: center;
+  letter-spacing: 0.3px;
+}
+
+/* ===== HEADER ===== */
+header {
+  background: var(--primary);
+  padding: 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px;
+  gap: 20px;
+}
+
+.logo-block {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+}
+
+.logo-icon {
+  width: 52px;
+  height: 52px;
+  background: var(--gold);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(200,168,75,0.35);
+}
+
+.logo-text { color: white; }
+.logo-text .name {
+  font-family: 'Amiri', serif;
+  font-size: 22px;
+  font-weight: 700;
+  display: block;
+  line-height: 1.2;
+}
+.logo-text .tagline {
+  font-size: 12px;
+  color: #b3ccdd;
+  display: block;
+}
+
+.header-search {
+  flex: 1;
+  max-width: 340px;
+  position: relative;
+}
+.header-search input {
+  width: 100%;
+  padding: 10px 18px 10px 44px;
+  border-radius: 25px;
+  border: none;
+  background: rgba(255,255,255,0.12);
+  color: white;
+  font-family: 'Tajawal', sans-serif;
+  font-size: 14px;
+  outline: none;
+  transition: 0.3s;
+}
+.header-search input::placeholder { color: rgba(255,255,255,0.55); }
+.header-search input:focus { background: rgba(255,255,255,0.2); }
+.header-search .search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(255,255,255,0.6);
+  font-size: 16px;
+}
+
+.header-actions { display: flex; gap: 10px; align-items: center; }
+.btn-telegram {
+  background: var(--gold);
+  color: var(--primary-dark);
+  border: none;
+  padding: 9px 20px;
+  border-radius: 25px;
+  font-family: 'Tajawal', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.3s;
+  white-space: nowrap;
+}
+.btn-telegram:hover {
+  background: var(--gold-light);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(200,168,75,0.4);
+}
+
+/* ===== NAV ===== */
+nav {
+  background: var(--primary-dark);
+  border-bottom: 2px solid var(--gold);
+}
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.nav-inner::-webkit-scrollbar { display: none; }
+
+nav a {
+  color: #c8d8e8;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 13px 18px;
+  white-space: nowrap;
+  border-bottom: 3px solid transparent;
+  transition: 0.25s;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+nav a:hover, nav a.active {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+  background: rgba(255,255,255,0.04);
+}
+.nav-icon { font-size: 16px; }
+
+/* ===== HERO ===== */
+.hero {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 60%, var(--primary-light) 100%);
+  padding: 70px 24px 60px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -80px; left: -80px;
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(200,168,75,0.12) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -60px; right: -60px;
+  width: 250px; height: 250px;
+  background: radial-gradient(circle, rgba(200,168,75,0.08) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.hero-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+.hero-badge {
+  display: inline-block;
+  background: rgba(200,168,75,0.18);
+  border: 1px solid rgba(200,168,75,0.4);
+  color: var(--gold-light);
+  padding: 6px 18px;
+  border-radius: 20px;
+  font-size: 13px;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+.hero h1 {
+  font-family: 'Amiri', serif;
+  font-size: 48px;
+  color: white;
+  font-weight: 700;
+  margin-bottom: 16px;
+  line-height: 1.3;
+}
+.hero p {
+  font-size: 17px;
+  color: #b3ccdd;
+  max-width: 600px;
+  margin: 0 auto 30px;
+  line-height: 1.8;
+}
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.stat {
+  text-align: center;
+  color: white;
+}
+.stat .num {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--gold);
+  display: block;
+  line-height: 1;
+}
+.stat .lbl {
+  font-size: 13px;
+  color: #b3ccdd;
+  margin-top: 4px;
+}
+
+/* ===== SECTIONS DIVIDER ===== */
+.divider {
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(to left, var(--gold) 0%, transparent 100%);
+  opacity: 0.35;
+  margin: 0;
+}
+
+/* ===== MAIN LAYOUT ===== */
+.main-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px;
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 30px;
+}
+
+/* ===== SECTION TITLE ===== */
+.sec-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.sec-title .line {
+  height: 32px;
+  width: 5px;
+  background: var(--gold);
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+.sec-title h2 {
+  font-family: 'Amiri', serif;
+  font-size: 26px;
+  color: var(--primary);
+  font-weight: 700;
+}
+.sec-title .count {
+  background: var(--primary);
+  color: white;
+  border-radius: 12px;
+  padding: 2px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-right: auto;
+}
+
+/* ===== BOOKS SECTION ===== */
+.books-hero {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, #1e3a5f 100%);
+  border-radius: 16px;
+  padding: 36px;
+  margin-bottom: 30px;
+  position: relative;
+  overflow: hidden;
+}
+.books-hero::before {
+  content: '📚';
+  position: absolute;
+  font-size: 140px;
+  opacity: 0.06;
+  left: -20px;
+  bottom: -20px;
+  line-height: 1;
+}
+.books-hero h2 {
+  font-family: 'Amiri', serif;
+  color: white;
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+.books-hero p {
+  color: #b3ccdd;
+  font-size: 15px;
+  max-width: 500px;
+  line-height: 1.8;
+}
+.books-hero .gold-tag {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--primary-dark);
+  padding: 4px 14px;
+  border-radius: 15px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 22px;
+  margin-bottom: 30px;
+}
+
+.book-card {
+  background: white;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  transition: 0.3s;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  position: relative;
+}
+.book-card:hover {
+  box-shadow: var(--card-hover);
+  transform: translateY(-4px);
+}
+.book-card .bestseller-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #e74c3c;
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 10px;
+  z-index: 2;
+}
+.book-card .new-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #27ae60;
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 10px;
+  z-index: 2;
+}
+
+.book-cover {
+  width: 100%;
+  aspect-ratio: 3/4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 64px;
+  position: relative;
+  padding: 20px;
+}
+.book-cover.c1 { background: linear-gradient(135deg, #1a4a6e, #2a7ae2); }
+.book-cover.c2 { background: linear-gradient(135deg, #1a6e4a, #27ae60); }
+.book-cover.c3 { background: linear-gradient(135deg, #6e1a3a, #c0392b); }
+.book-cover.c4 { background: linear-gradient(135deg, #4a3a1a, #e67e22); }
+.book-cover.c5 { background: linear-gradient(135deg, #3a1a6e, #8e44ad); }
+
+.book-cover .book-title-on-cover {
+  position: absolute;
+  bottom: 16px;
+  right: 0; left: 0;
+  text-align: center;
+  color: white;
+  font-family: 'Amiri', serif;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 0 12px;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+  line-height: 1.3;
+}
+
+.book-info {
+  padding: 16px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.book-info h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.4;
+  font-family: 'Amiri', serif;
+}
+.book-info .author {
+  font-size: 12px;
+  color: var(--text-light);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.book-info .desc {
+  font-size: 12px;
+  color: var(--text-light);
+  line-height: 1.6;
+  flex: 1;
+}
+.book-info .stars {
+  color: var(--gold);
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+.book-price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 6px;
+  gap: 8px;
+}
+.book-price {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--primary);
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+.book-price .currency {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-light);
+}
+.btn-buy {
+  background: var(--gold);
+  color: var(--primary-dark);
+  border: none;
+  padding: 9px 16px;
+  border-radius: 10px;
+  font-family: 'Tajawal', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.3s;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.btn-buy:hover {
+  background: var(--gold-light);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(200,168,75,0.35);
+}
+
+/* Bundle card */
+.bundle-card {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  border-radius: 14px;
+  padding: 28px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  box-shadow: var(--card-shadow);
+  margin-bottom: 30px;
+  position: relative;
+  overflow: hidden;
+}
+.bundle-card::before {
+  content: '';
+  position: absolute;
+  top: -40px; left: -40px;
+  width: 150px; height: 150px;
+  background: radial-gradient(circle, rgba(200,168,75,0.2) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.bundle-icon { font-size: 56px; flex-shrink: 0; }
+.bundle-info { flex: 1; }
+.bundle-info h3 {
+  font-family: 'Amiri', serif;
+  color: white;
+  font-size: 22px;
+  margin-bottom: 6px;
+}
+.bundle-info p { color: #b3ccdd; font-size: 14px; line-height: 1.7; }
+.bundle-price {
+  text-align: center;
+  flex-shrink: 0;
+}
+.bundle-price .original {
+  text-decoration: line-through;
+  color: rgba(255,255,255,0.45);
+  font-size: 14px;
+}
+.bundle-price .discount {
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--gold);
+  display: block;
+  line-height: 1;
+}
+.bundle-price .cur { font-size: 13px; color: #b3ccdd; display: block; margin-bottom: 10px; }
+.btn-bundle {
+  background: var(--gold);
+  color: var(--primary-dark);
+  border: none;
+  padding: 11px 22px;
+  border-radius: 25px;
+  font-family: 'Tajawal', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: 0.3s;
+  display: block;
+  text-decoration: none;
+  text-align: center;
+}
+.btn-bundle:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+/* ===== SECTIONS GRID (مقالات، قصص...) ===== */
+.sections-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin-bottom: 30px;
+}
+
+.section-card {
+  background: white;
+  border-radius: 12px;
+  padding: 22px;
+  box-shadow: var(--card-shadow);
+  border: 1px solid var(--border);
+  text-decoration: none;
+  transition: 0.3s;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+.section-card:hover {
+  box-shadow: var(--card-hover);
+  transform: translateY(-2px);
+  border-color: var(--primary);
+}
+.section-card .icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+.section-card .info h3 {
+  color: var(--primary);
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+.section-card .info p {
+  color: var(--text-light);
+  font-size: 12px;
+  line-height: 1.5;
+}
+.section-card .info .cnt {
+  font-size: 11px;
+  color: var(--gold);
+  font-weight: 600;
+  margin-top: 6px;
+}
+
+.c-blue   { background: #e8f4fd; }
+.c-green  { background: #e8f8f0; }
+.c-red    { background: #fdeaea; }
+.c-orange { background: #fef5e7; }
+.c-purple { background: #f3eafd; }
+.c-teal   { background: #e8faf8; }
+.c-gold   { background: #fdf8e8; }
+.c-navy   { background: #eaeff8; }
+
+/* ===== SIDEBAR ===== */
+.sidebar { display: flex; flex-direction: column; gap: 22px; }
+
+.sidebar-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+.sidebar-card-header {
+  background: var(--primary);
+  color: white;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 14px;
+}
+.sidebar-card-body { padding: 16px; }
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--border);
+  text-decoration: none;
+  color: var(--text);
+  transition: 0.2s;
+  font-size: 14px;
+}
+.sidebar-link:last-child { border-bottom: none; }
+.sidebar-link:hover { color: var(--primary); padding-right: 6px; }
+.sidebar-link .arrow { color: var(--gold); font-size: 12px; margin-right: auto; }
+
+.author-card {
+  text-align: center;
+  padding: 24px 18px;
+}
+.author-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  margin: 0 auto 14px;
+  box-shadow: 0 4px 14px rgba(26,74,110,0.25);
+}
+.author-card h3 {
+  font-family: 'Amiri', serif;
+  color: var(--primary);
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.author-card p {
+  color: var(--text-light);
+  font-size: 13px;
+  line-height: 1.7;
+  margin-bottom: 14px;
+}
+.author-stats {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 14px;
+}
+.author-stats .s { text-align: center; }
+.author-stats .s .n { font-weight: 800; color: var(--primary); font-size: 20px; display: block; }
+.author-stats .s .l { font-size: 11px; color: var(--text-light); }
+.btn-follow {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 9px 24px;
+  border-radius: 20px;
+  font-family: 'Tajawal', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: 0.3s;
+  text-decoration: none;
+  display: inline-block;
+}
+.btn-follow:hover { background: var(--primary-dark); }
+
+.telegram-card {
+  background: linear-gradient(135deg, #0088cc, #006aa3);
+  padding: 22px 18px;
+  text-align: center;
+  color: white;
+}
+.telegram-card .tg-icon { font-size: 40px; margin-bottom: 10px; }
+.telegram-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+.telegram-card p { font-size: 12px; opacity: 0.85; margin-bottom: 14px; line-height: 1.6; }
+.btn-tg {
+  background: white;
+  color: #0088cc;
+  border: none;
+  padding: 9px 20px;
+  border-radius: 20px;
+  font-family: 'Tajawal', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: 0.3s;
+}
+.btn-tg:hover { transform: translateY(-1px); box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
+
+/* Latest articles in sidebar */
+.latest-item {
+  display: flex;
+  gap: 10px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  text-decoration: none;
+  color: var(--text);
+  transition: 0.2s;
+  align-items: flex-start;
+}
+.latest-item:last-child { border-bottom: none; }
+.latest-item:hover { color: var(--primary); }
+.latest-item .li-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+  background: var(--bg);
+}
+.latest-item .li-info .li-title {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 3px;
+}
+.latest-item .li-info .li-cat {
+  font-size: 11px;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--primary-dark);
+  color: #b3ccdd;
+  padding: 50px 24px 24px;
+  margin-top: 20px;
+}
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 36px;
+  margin-bottom: 36px;
+}
+.footer-logo { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.footer-logo .f-icon {
+  width: 42px; height: 42px;
+  background: var(--gold);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px;
+}
+.footer-logo .f-name {
+  font-family: 'Amiri', serif;
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+}
+.footer-about p { font-size: 13px; line-height: 1.8; max-width: 280px; }
+.footer-col h4 { color: var(--gold); font-size: 15px; font-weight: 700; margin-bottom: 16px; }
+.footer-col a {
+  display: block;
+  color: #b3ccdd;
+  text-decoration: none;
+  font-size: 13px;
+  margin-bottom: 10px;
+  transition: 0.2s;
+}
+.footer-col a:hover { color: white; padding-right: 4px; }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 12px;
+}
+.footer-bottom .tg-link {
+  color: var(--gold);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .main-wrap { grid-template-columns: 1fr; }
+  .sidebar { display: none; }
+  .footer-inner { grid-template-columns: 1fr 1fr; }
+  .hero h1 { font-size: 32px; }
+  .hero-stats { gap: 24px; }
+  .bundle-card { flex-direction: column; text-align: center; }
+}
+@media (max-width: 600px) {
+  .sections-grid { grid-template-columns: 1fr; }
+  .books-grid { grid-template-columns: repeat(2, 1fr); }
+  .header-search { display: none; }
+  .hero h1 { font-size: 26px; }
+  .footer-inner { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a href="#" class="logo-block">
+      <div class="logo-icon">🩺</div>
+      <div class="logo-text">
+        <span class="name">موسوعة الإقامة الدورية</span>
+        <span class="tagline">مرجعك الطبي الشامل</span>
+      </div>
+    </a>
+    <div class="header-search">
+      <span class="search-icon">🔍</span>
+      <input type="text" placeholder="ابحث في الموسوعة...">
+    </div>
+    <div class="header-actions">
+      <a href="https://t.me/rotatorinfographics" class="btn-telegram" target="_blank">📱 قناة التيليغرام</a>
+    </div>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="active"><span class="nav-icon">🏠</span> الرئيسية</a>
+    <a href="#articles"><span class="nav-icon">📝</span> مقالات</a>
+    <a href="#stories"><span class="nav-icon">🏥</span> قصص طبية</a>
+    <a href="#diary"><span class="nav-icon">📔</span> يوميات</a>
+    <a href="#drugs"><span class="nav-icon">💊</span> أدوية</a>
+    <a href="#infographic"><span class="nav-icon">📊</span> انفوغرافيك</a>
+    <a href="#books"><span class="nav-icon">📚</span> كتب</a>
+    <a href="#tips"><span class="nav-icon">💡</span> نصائح</a>
+    <a href="#tech"><span class="nav-icon">🤖</span> الطبيب والتكنولوجيا</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">✦ الموسوعة الطبية العربية المتخصصة</div>
+    <h1>موسوعة الإقامة الدورية</h1>
+    <p>مرجعك الطبي الشامل للأطباء المقيمين والمتدربين — مقالات، قصص، أدوية، كتب وأكثر بقلم طبيب مقيم</p>
+    <div class="hero-stats">
+      <div class="stat"><span class="num">٨+</span><span class="lbl">أقسام متخصصة</span></div>
+      <div class="stat"><span class="num">٥</span><span class="lbl">كتب طبية</span></div>
+      <div class="stat"><span class="num">١٠٠+</span><span class="lbl">مقال ومحتوى</span></div>
+      <div class="stat"><span class="num">🔗</span><span class="lbl">قناة تيليغرام</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- MAIN -->
+<div class="main-wrap">
+  <div class="main-content">
+
+    <!-- ===== BOOKS SECTION ===== -->
+    <div id="books">
+      <div class="books-hero">
+        <div class="gold-tag">✦ مؤلفات الطبيب</div>
+        <h2>📚 قسم الكتب</h2>
+        <p>خمسة كتب طبية ألّفتها من رحم تجربتي كطبيب مقيم — موجّهة لكل طبيب يريد أن يتطور ويفهم ما لا تعلّمه في الكلية</p>
+      </div>
+
+      <!-- Bundle -->
+      <div class="bundle-card">
+        <div class="bundle-icon">📦</div>
+        <div class="bundle-info">
+          <h3>اشترِ الكتب الخمسة معاً — خصم خاص!</h3>
+          <p>وفّر عند شراء المجموعة الكاملة. المحتوى الأفضل من تجربة الإقامة الدورية في كتاب واحد من كل نوع.</p>
+        </div>
+        <div class="bundle-price">
+          <span class="original">75 دولار</span>
+          <span class="discount">49</span>
+          <span class="cur">دولار أمريكي</span>
+          <a href="#" class="btn-bundle">🛒 اشتري الحزمة</a>
+        </div>
+      </div>
+
+      <!-- Books Grid -->
+      <div class="sec-title">
+        <div class="line"></div>
+        <h2>الكتب المتاحة</h2>
+        <span class="count">5 كتب</span>
+      </div>
+
+      <div class="books-grid">
+
+        <!-- Book 1 -->
+        <div class="book-card">
+          <div class="bestseller-badge">⭐ الأكثر مبيعاً</div>
+          <div class="book-cover c1">
+            <div class="book-title-on-cover">الكتاب الأول</div>
+          </div>
+          <div class="book-info">
+            <h3>اسم كتابك الأول هنا</h3>
+            <div class="author">✍️ يوسف — طبيب مقيم</div>
+            <p class="desc">وصف مختصر للكتاب. أضف هنا ما الذي ستجد فيه وما الفائدة التي سيحصل عليها القارئ.</p>
+            <div class="stars">★★★★★</div>
+            <div class="book-price-row">
+              <div class="book-price">
+                15<span class="currency">دولار</span>
+              </div>
+              <a href="#" class="btn-buy">🛒 اشترِ</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Book 2 -->
+        <div class="book-card">
+          <div class="new-badge">🆕 جديد</div>
+          <div class="book-cover c2">
+            <div class="book-title-on-cover">الكتاب الثاني</div>
+          </div>
+          <div class="book-info">
+            <h3>اسم كتابك الثاني هنا</h3>
+            <div class="author">✍️ يوسف — طبيب مقيم</div>
+            <p class="desc">وصف مختصر للكتاب. ما الذي يميزه وماذا ستتعلم منه؟</p>
+            <div class="stars">★★★★★</div>
+            <div class="book-price-row">
+              <div class="book-price">
+                15<span class="currency">دولار</span>
+              </div>
+              <a href="#" class="btn-buy">🛒 اشترِ</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Book 3 -->
+        <div class="book-card">
+          <div class="book-cover c3">
+            <div class="book-title-on-cover">الكتاب الثالث</div>
+          </div>
+          <div class="book-info">
+            <h3>اسم كتابك الثالث هنا</h3>
+            <div class="author">✍️ يوسف — طبيب مقيم</div>
+            <p class="desc">وصف مختصر للكتاب. أخبر القارئ لماذا يحتاج هذا الكتاب.</p>
+            <div class="stars">★★★★☆</div>
+            <div class="book-price-row">
+              <div class="book-price">
+                15<span class="currency">دولار</span>
+              </div>
+              <a href="#" class="btn-buy">🛒 اشترِ</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Book 4 -->
+        <div class="book-card">
+          <div class="book-cover c4">
+            <div class="book-title-on-cover">الكتاب الرابع</div>
+          </div>
+          <div class="book-info">
+            <h3>اسم كتابك الرابع هنا</h3>
+            <div class="author">✍️ يوسف — طبيب مقيم</div>
+            <p class="desc">وصف مختصر للكتاب. ما الذي يميزه وماذا ستتعلم منه؟</p>
+            <div class="stars">★★★★★</div>
+            <div class="book-price-row">
+              <div class="book-price">
+                15<span class="currency">دولار</span>
+              </div>
+              <a href="#" class="btn-buy">🛒 اشترِ</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Book 5 -->
+        <div class="book-card">
+          <div class="book-cover c5">
+            <div class="book-title-on-cover">الكتاب الخامس</div>
+          </div>
+          <div class="book-info">
+            <h3>اسم كتابك الخامس هنا</h3>
+            <div class="author">✍️ يوسف — طبيب مقيم</div>
+            <p class="desc">وصف مختصر للكتاب. ما الذي يميزه وماذا ستتعلم منه؟</p>
+            <div class="stars">★★★★★</div>
+            <div class="book-price-row">
+              <div class="book-price">
+                15<span class="currency">دولار</span>
+              </div>
+              <a href="#" class="btn-buy">🛒 اشترِ</a>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /books-grid -->
+    </div><!-- /books -->
+
+    <div class="divider" style="margin: 30px 0;"></div>
+
+    <!-- ===== SECTIONS GRID ===== -->
+    <div class="sec-title">
+      <div class="line"></div>
+      <h2>أقسام الموسوعة</h2>
+    </div>
+
+    <div class="sections-grid">
+
+      <a href="#articles" class="section-card" id="articles">
+        <div class="icon c-blue">📝</div>
+        <div class="info">
+          <h3>مقالات</h3>
+          <p>مقالات طبية متخصصة تغطي مواضيع الإقامة الدورية من الحالات السريرية والتحديات اليومية</p>
+          <div class="cnt">عشرات المقالات ←</div>
+        </div>
+      </a>
+
+      <a href="#stories" class="section-card" id="stories">
+        <div class="icon c-red">🏥</div>
+        <div class="info">
+          <h3>قصص طبية</h3>
+          <p>حالات حقيقية ومواقف من داخل المستشفى تحكي تجربة الطبيب المقيم بصدق وتفصيل</p>
+          <div class="cnt">عشرات القصص ←</div>
+        </div>
+      </a>
+
+      <a href="#diary" class="section-card" id="diary">
+        <div class="icon c-orange">📔</div>
+        <div class="info">
+          <h3>يوميات</h3>
+          <p>تدوينات يومية من أروقة المستشفى — اللحظات الإنسانية والمهنية بعيون طبيب مقيم</p>
+          <div class="cnt">عشرات التدوينات ←</div>
+        </div>
+      </a>
+
+      <a href="#drugs" class="section-card" id="drugs">
+        <div class="icon c-green">💊</div>
+        <div class="info">
+          <h3>أدوية</h3>
+          <p>مراجع وملخصات دوائية عملية تساعد الطبيب في اتخاذ قراراته السريعة داخل المناوبة</p>
+          <div class="cnt">عشرات الأدوية ←</div>
+        </div>
+      </a>
+
+      <a href="#infographic" class="section-card" id="infographic">
+        <div class="icon c-purple">📊</div>
+        <div class="info">
+          <h3>انفوغرافيك</h3>
+          <p>ملخصات بصرية مبتكرة لأهم المواضيع الطبية — قابلة للمشاركة والتعلم السريع</p>
+          <div class="cnt">عشرات الإنفوغرافيك ←</div>
+        </div>
+      </a>
+
+      <a href="#tips" class="section-card" id="tips">
+        <div class="icon c-gold">💡</div>
+        <div class="info">
+          <h3>نصائح</h3>
+          <p>نصائح عملية للطبيب المقيم في إدارة وقته وصحته النفسية والتعامل مع الحالات الصعبة</p>
+          <div class="cnt">عشرات النصائح ←</div>
+        </div>
+      </a>
+
+      <a href="#tech" class="section-card" id="tech">
+        <div class="icon c-navy">🤖</div>
+        <div class="info">
+          <h3>الطبيب والتكنولوجيا</h3>
+          <p>كيف يمكن للطبيب الاستفادة من أدوات الذكاء الاصطناعي والتقنية الحديثة في العمل اليومي</p>
+          <div class="cnt">عشرات المقالات ←</div>
+        </div>
+      </a>
+
+      <a href="#books" class="section-card">
+        <div class="icon c-teal">📚</div>
+        <div class="info">
+          <h3>كتب للبيع</h3>
+          <p>خمسة كتب طبية ألّفها يوسف من رحم تجربة الإقامة الدورية — للشراء والتحميل المباشر</p>
+          <div class="cnt">٥ كتب متاحة ←</div>
+        </div>
+      </a>
+
+    </div>
+
+  </div><!-- /main-content -->
+
+  <!-- ===== SIDEBAR ===== -->
+  <div class="sidebar">
+
+    <!-- Author Card -->
+    <div class="sidebar-card">
+      <div class="author-card">
+        <div class="author-avatar">👨‍⚕️</div>
+        <h3>يوسف</h3>
+        <p>طبيب مقيم وكاتب — أشاركك تجربتي داخل المستشفى بصدق وعلم وإنسانية</p>
+        <div class="author-stats">
+          <div class="s"><span class="n">٥</span><span class="l">كتب</span></div>
+          <div class="s"><span class="n">١٠٠+</span><span class="l">مقال</span></div>
+          <div class="s"><span class="n">٨</span><span class="l">أقسام</span></div>
+        </div>
+        <a href="https://t.me/rotatorinfographics" class="btn-follow" target="_blank">تابعني على تيليغرام</a>
+      </div>
+    </div>
+
+    <!-- Telegram -->
+    <div class="sidebar-card">
+      <div class="telegram-card">
+        <div class="tg-icon">📲</div>
+        <h3>انضم لقناة التيليغرام</h3>
+        <p>تابع آخر المقالات والإنفوغرافيك والمحتوى الحصري أولاً بأول</p>
+        <a href="https://t.me/rotatorinfographics" class="btn-tg" target="_blank">🔗 انضم الآن</a>
+      </div>
+    </div>
+
+    <!-- Quick Books -->
+    <div class="sidebar-card">
+      <div class="sidebar-card-header">📚 الكتب — شراء سريع</div>
+      <div class="sidebar-card-body">
+        <a href="#" class="sidebar-link">📘 الكتاب الأول <span class="arrow">←</span></a>
+        <a href="#" class="sidebar-link">📗 الكتاب الثاني <span class="arrow">←</span></a>
+        <a href="#" class="sidebar-link">📕 الكتاب الثالث <span class="arrow">←</span></a>
+        <a href="#" class="sidebar-link">📙 الكتاب الرابع <span class="arrow">←</span></a>
+        <a href="#" class="sidebar-link">📓 الكتاب الخامس <span class="arrow">←</span></a>
+      </div>
+    </div>
+
+    <!-- Latest -->
+    <div class="sidebar-card">
+      <div class="sidebar-card-header">🕐 آخر المحتوى</div>
+      <div class="sidebar-card-body">
+        <a href="#" class="latest-item">
+          <div class="li-icon">📝</div>
+          <div class="li-info">
+            <div class="li-title">عنوان آخر مقالة هنا</div>
+            <div class="li-cat">مقالات</div>
+          </div>
+        </a>
+        <a href="#" class="latest-item">
+          <div class="li-icon">🏥</div>
+          <div class="li-info">
+            <div class="li-title">عنوان قصة طبية جديدة</div>
+            <div class="li-cat">قصص طبية</div>
+          </div>
+        </a>
+        <a href="#" class="latest-item">
+          <div class="li-icon">📊</div>
+          <div class="li-info">
+            <div class="li-title">انفوغرافيك جديد</div>
+            <div class="li-cat">انفوغرافيك</div>
+          </div>
+        </a>
+        <a href="#" class="latest-item">
+          <div class="li-icon">💡</div>
+          <div class="li-info">
+            <div class="li-title">نصيحة الأسبوع</div>
+            <div class="li-cat">نصائح</div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+  </div><!-- /sidebar -->
+</div><!-- /main-wrap -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-about">
+      <div class="footer-logo">
+        <div class="f-icon">🩺</div>
+        <div class="f-name">موسوعة الإقامة الدورية</div>
+      </div>
+      <p>مرجعك الطبي الشامل للأطباء المقيمين والمتدربين. مقالات، قصص، أدوية، كتب، انفوغرافيك ونصائح من رحم التجربة الحقيقية.</p>
+    </div>
+    <div class="footer-col">
+      <h4>الأقسام</h4>
+      <a href="#">📝 مقالات</a>
+      <a href="#">🏥 قصص طبية</a>
+      <a href="#">📔 يوميات</a>
+      <a href="#">💊 أدوية</a>
+    </div>
+    <div class="footer-col">
+      <h4>المزيد</h4>
+      <a href="#">📊 انفوغرافيك</a>
+      <a href="#">📚 كتب</a>
+      <a href="#">💡 نصائح</a>
+      <a href="#">🤖 الطبيب والتكنولوجيا</a>
+    </div>
+    <div class="footer-col">
+      <h4>تواصل</h4>
+      <a href="https://t.me/rotatorinfographics" target="_blank">📱 قناة التيليغرام</a>
+      <a href="#">📧 راسلنا</a>
+      <a href="#">📚 شراء الكتب</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 موسوعة الإقامة الدورية — جميع الحقوق محفوظة</span>
+    <a href="https://t.me/rotatorinfographics" class="tg-link" target="_blank">📱 t.me/rotatorinfographics</a>
+  </div>
+</footer>
+
+</body>
+</html>
